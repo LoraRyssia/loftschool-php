@@ -105,3 +105,32 @@ echo $car["opel"]["model"] . " ";
 echo $car["opel"]["speed"] . " ";
 echo $car["opel"]["doors"] . " ";
 echo $car["opel"]["year"] . "<br><br>";
+
+// #6
+
+$rows = 10;
+$cols = 10;
+
+echo "<table border='1'>";
+
+for ($tr=1; $tr<=$rows; $tr++) {
+    echo "<tr>";
+    for ($td=1; $td<=$cols; $td++) {
+        if ($tr%2 == 0) {
+            if ($td%2 == 0) {
+                echo "<td>(" . $tr*$td . ")</td>";
+            } else {
+                echo "<td>" . $tr*$td . "</td>";
+            }
+        } else {
+            if ($td%2 == 0) {
+                echo "<td>" . $tr*$td . "</td>";
+            } else {
+                echo "<td>[" . $tr*$td . "]</td>";
+            }
+        }
+    }
+    echo "</tr>";
+}
+
+echo "</table>";
