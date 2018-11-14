@@ -5,9 +5,9 @@
 $name = "Лариса";
 $age = "99";
 
-echo "Меня зовут $name";
+echo "Меня зовут $name<br><br>";
 
-echo "Мне $age лет";
+echo "Мне $age лет <br><br>";
 
 echo "!|\/'"; //убрала обратный слэш, чтобы не выводило ошибок
 
@@ -20,21 +20,21 @@ const PIC_PENC = 40; //Кол-во рисунков карандашами
 
 $pic_paints = PICTURES - PIC_MARK - PIC_PENC; //Находим кол-во рисунков красками
 
-echo $pic_paints;
+echo $pic_paints . "<br><br>";
 
 // #3
 
 $age = 34;
 
 if (18 <= $age and $age <= 65) {
-    echo "Вам еще работать и работать";
+    echo "Вам еще работать и работать<br><br>";
 } elseif (1 <= $age and $age <= 17) {
-    echo "Вам еще рано работать";
+    echo "Вам еще рано работать<br><br>";
 }
 elseif ($age > 65) {
-    echo "Вам пора на пенсию";
+    echo "Вам пора на пенсию<br><br>";
 } else {
-    echo "Неизвестный возраст";
+    echo "Неизвестный возраст<br><br>";
 }
 
 // #4
@@ -43,26 +43,65 @@ $day = 14;
 
 switch ($day) {
     case 1:
-        echo "Это рабочий день";
+        echo "Это рабочий день<br><br>";
         break;
     case 2:
-        echo "Это рабочий день";
+        echo "Это рабочий день<br><br>";
         break;
     case 3:
-        echo "Это рабочий день";
+        echo "Это рабочий день<br><br>";
         break;
     case 4:
-        echo "Это рабочий день";
+        echo "Это рабочий день<br><br>";
         break;
     case 5:
-        echo "Это рабочий день";
+        echo "Это рабочий день<br><br>";
         break;
     case 6:
-        echo "Это выходной день";
+        echo "Это выходной день<br><br>";
         break;
     case 7:
-        echo "Это выходной день";
+        echo "Это выходной день<br><br>";
         break;
     default:
-        echo "Неизвестный день";
+        echo "Неизвестный день<br><br>";
 }
+
+// #5
+
+$bmv["model"] = "X5";
+$bmv["speed"] = "120";
+$bmv["doors"] = "5";
+$bmv["year"] = "2015";
+
+$toyota["model"] = "camry";
+$toyota["speed"] = "110";
+$toyota["doors"] = "4";
+$toyota["year"] = "2016";
+
+$opel["model"] = "astra";
+$opel["speed"] = "125";
+$opel["doors"] = "4";
+$opel["year"] = "2014";
+
+$car["bmv"] = array("name" => "BMV", "model" => "X5", "speed" => "120", "doors" => "5", "year" => "2015");
+$car["toyota"] = array("name" => "Toyota", "model" => "camry", "speed" => "110", "doors" => "4", "year" => "2016");
+$car["opel"] = array("name" => "Opel", "model" => "astra", "speed" => "125", "doors" => "4", "year" => "2014");
+
+echo "CAR " . $car["bmv"]["name"] . "<br>";
+echo $car["bmv"]["model"] . " ";
+echo $car["bmv"]["speed"] . " ";
+echo $car["bmv"]["doors"] . " ";
+echo $car["bmv"]["year"] . "<br><br>";
+
+echo "CAR " . $car["toyota"]["name"] . "<br>";
+echo $car["toyota"]["model"] . " ";
+echo $car["toyota"]["speed"] . " ";
+echo $car["toyota"]["doors"] . " ";
+echo $car["toyota"]["year"] . "<br><br>";
+
+echo "CAR " . $car["opel"]["name"] . "<br>";
+echo $car["opel"]["model"] . " ";
+echo $car["opel"]["speed"] . " ";
+echo $car["opel"]["doors"] . " ";
+echo $car["opel"]["year"] . "<br><br>";
