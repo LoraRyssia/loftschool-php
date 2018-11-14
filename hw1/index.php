@@ -21,3 +21,18 @@ const PIC_PENC = 40; //Кол-во рисунков карандашами
 $pic_paints = PICTURES - PIC_MARK - PIC_PENC; //Находим кол-во рисунков красками
 
 echo $pic_paints;
+
+// #3
+
+$age = 34;
+
+if (18 <= $age and $age <= 65) {
+    echo "Вам еще работать и работать";
+} elseif (1 <= $age and $age <= 17) {
+    echo "Вам еще рано работать";
+}
+elseif ($age > 65) {
+    echo "Вам пора на пенсию";
+} else {
+    echo "Неизвестный возраст";
+}
