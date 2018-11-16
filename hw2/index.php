@@ -2,4 +2,4 @@
 
 require('src/functions.php');
 
-task2('+', 3, 5, 10);
+task3(3,'g');

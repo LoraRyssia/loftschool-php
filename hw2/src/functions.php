@@ -14,7 +14,7 @@ function task1($string)
         if ($arg_array[1] === true) {
             $result = '';
             for ($i=0; $i<=sizeof($string); ++$i) {
-                $result .= $string[$i];
+                $result .= ' ' . $string[$i];
             }
             echo $result;
         }
@@ -59,5 +59,29 @@ function task2()
             break;
         default:
             echo "Первый аргумент не обозначает арифметическое действие";
+    }
+}
+
+// #3
+
+function task3($a, $b)
+{
+    if (gettype($a)==='integer' and gettype($b)==='integer') {
+        $rows = $a;
+        $cols = $b;
+
+        echo "<table border='1'>";
+
+        for ($tr=1; $tr<=$rows; $tr++) {
+            echo "<tr>";
+            for ($td=1; $td<=$cols; $td++) {
+                echo "<td>" . $tr*$td . "</td>";
+            }
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    } else {
+        echo "Один из аргументов функции не является целым числом.";
     }
 }
