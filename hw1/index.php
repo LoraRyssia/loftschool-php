@@ -111,26 +111,22 @@ echo $car["opel"]["year"] . "<br><br>";
 $rows = 10;
 $cols = 10;
 
-echo "<table border='1'>";
+$table = "<table border='1'>";
 
 for ($tr=1; $tr<=$rows; $tr++) {
-    echo "<tr>";
+    $table .= "<tr>";
     for ($td=1; $td<=$cols; $td++) {
-        if ($tr%2 == 0) {
-            if ($td%2 == 0) {
-                echo "<td>(" . $tr*$td . ")</td>";
-            } else {
-                echo "<td>" . $tr*$td . "</td>";
-            }
+        $result = $tr*$td;
+        if ($tr%2 == 0 and $td%2 == 0) {
+            $table .= "<td>(" . $result . ")</td>";
+        } elseif ($tr%2 != 0 and $td%2 != 0) {
+            $table .= "<td>[" . $result . "]</td>";
         } else {
-            if ($td%2 == 0) {
-                echo "<td>" . $tr*$td . "</td>";
-            } else {
-                echo "<td>[" . $tr*$td . "]</td>";
-            }
+            $table .= "<td>" . $result . "</td>";
         }
     }
-    echo "</tr>";
+    $table .= "</tr>";
 }
 
-echo "</table>";
+$table .= "</table>";
+echo $table;
