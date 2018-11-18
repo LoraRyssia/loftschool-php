@@ -70,17 +70,18 @@ function task3($a, $b)
         $rows = $a;
         $cols = $b;
 
-        echo "<table border='1'>";
+        $table = "<table border='1'>";
 
         for ($tr = 1; $tr <= $rows; $tr++) {
-            echo "<tr>";
+            $table .= "<tr>";
             for ($td = 1; $td <= $cols; $td++) {
-                echo "<td>" . $tr*$td . "</td>";
+                $table .= "<td>" . $tr*$td . "</td>";
             }
-            echo "</tr>";
+            $table .= "</tr>";
         }
 
-        echo "</table>";
+        $table .= "</table>";
+        echo $table;
     } else {
         echo "Один из аргументов функции не является целым числом.<br>";
     }
