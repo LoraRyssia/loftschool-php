@@ -9,7 +9,7 @@ echo "Меня зовут $name<br><br>";
 
 echo "Мне $age лет <br><br>";
 
-echo "!|\/'"; //убрала обратный слэш, чтобы не выводило ошибок
+echo "!|\/'";
 
 
 // #2
@@ -30,8 +30,7 @@ if (18 <= $age and $age <= 65) {
     echo "Вам еще работать и работать<br><br>";
 } elseif (1 <= $age and $age <= 17) {
     echo "Вам еще рано работать<br><br>";
-}
-elseif ($age > 65) {
+} elseif ($age > 65) {
     echo "Вам пора на пенсию<br><br>";
 } else {
     echo "Неизвестный возраст<br><br>";
@@ -43,23 +42,13 @@ $day = 14;
 
 switch ($day) {
     case 1:
-        echo "Это рабочий день<br><br>";
-        break;
     case 2:
-        echo "Это рабочий день<br><br>";
-        break;
     case 3:
-        echo "Это рабочий день<br><br>";
-        break;
     case 4:
-        echo "Это рабочий день<br><br>";
-        break;
     case 5:
         echo "Это рабочий день<br><br>";
         break;
     case 6:
-        echo "Это выходной день<br><br>";
-        break;
     case 7:
         echo "Это выходной день<br><br>";
         break;
@@ -116,21 +105,15 @@ echo "<table border='1'>";
 for ($tr=1; $tr<=$rows; $tr++) {
     echo "<tr>";
     for ($td=1; $td<=$cols; $td++) {
-        if ($tr%2 == 0) {
-            if ($td%2 == 0) {
-                echo "<td>(" . $tr*$td . ")</td>";
-            } else {
-                echo "<td>" . $tr*$td . "</td>";
-            }
+        $result = $tr*$td;
+        if ($tr%2 == 0 and $td%2 == 0) {
+            echo "<td>(" . $result . ")</td>";
+        } elseif ($tr%2 != 0 and $td%2 != 0) {
+            echo "<td>[" . $result . "]</td>";
         } else {
-            if ($td%2 == 0) {
-                echo "<td>" . $tr*$td . "</td>";
-            } else {
-                echo "<td>[" . $tr*$td . "]</td>";
-            }
+            echo "<td>" . $result . "</td>";
         }
     }
     echo "</tr>";
 }
-
 echo "</table>";
