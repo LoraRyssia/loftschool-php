@@ -9,8 +9,7 @@ echo "Меня зовут $name<br><br>";
 
 echo "Мне $age лет <br><br>";
 
-echo "!|\/'"; //убрала обратный слэш, чтобы не выводило ошибок
-
+echo "\"!|" . "\\/'" . "\"" . "\\" . "<br><br>";
 
 // #2
 
@@ -43,23 +42,13 @@ $day = 14;
 
 switch ($day) {
     case 1:
-        echo "Это рабочий день<br><br>";
-        break;
     case 2:
-        echo "Это рабочий день<br><br>";
-        break;
     case 3:
-        echo "Это рабочий день<br><br>";
-        break;
     case 4:
-        echo "Это рабочий день<br><br>";
-        break;
     case 5:
         echo "Это рабочий день<br><br>";
         break;
     case 6:
-        echo "Это выходной день<br><br>";
-        break;
     case 7:
         echo "Это выходной день<br><br>";
         break;
@@ -84,27 +73,18 @@ $opel["speed"] = "125";
 $opel["doors"] = "4";
 $opel["year"] = "2014";
 
-$car["bmv"] = array("name" => "BMV", "model" => "X5", "speed" => "120", "doors" => "5", "year" => "2015");
-$car["toyota"] = array("name" => "Toyota", "model" => "camry", "speed" => "110", "doors" => "4", "year" => "2016");
-$car["opel"] = array("name" => "Opel", "model" => "astra", "speed" => "125", "doors" => "4", "year" => "2014");
+$car["bmv"] = array("model" => "X5", "speed" => "120", "doors" => "5", "year" => "2015");
+$car["toyota"] = array("model" => "camry", "speed" => "110", "doors" => "4", "year" => "2016");
+$car["opel"] = array("model" => "astra", "speed" => "125", "doors" => "4", "year" => "2014");
 
-echo "CAR " . $car["bmv"]["name"] . "<br>";
-echo $car["bmv"]["model"] . " ";
-echo $car["bmv"]["speed"] . " ";
-echo $car["bmv"]["doors"] . " ";
-echo $car["bmv"]["year"] . "<br><br>";
-
-echo "CAR " . $car["toyota"]["name"] . "<br>";
-echo $car["toyota"]["model"] . " ";
-echo $car["toyota"]["speed"] . " ";
-echo $car["toyota"]["doors"] . " ";
-echo $car["toyota"]["year"] . "<br><br>";
-
-echo "CAR " . $car["opel"]["name"] . "<br>";
-echo $car["opel"]["model"] . " ";
-echo $car["opel"]["speed"] . " ";
-echo $car["opel"]["doors"] . " ";
-echo $car["opel"]["year"] . "<br><br>";
+$keys = array_keys($car);
+for($i = 0; $i < count($car); $i++) {
+    echo "CAR " . $keys[$i] . "<br>";
+    foreach($car[$keys[$i]] as $key => $value) {
+        echo $value . " ";
+    }
+    echo "<br><br>";
+}
 
 // #6
 
