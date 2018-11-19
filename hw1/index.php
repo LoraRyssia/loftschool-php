@@ -73,18 +73,19 @@ $opel["speed"] = "125";
 $opel["doors"] = "4";
 $opel["year"] = "2014";
 
-$car["bmv"] = array("model" => "X5", "speed" => "120", "doors" => "5", "year" => "2015");
-$car["toyota"] = array("model" => "camry", "speed" => "110", "doors" => "4", "year" => "2016");
-$car["opel"] = array("model" => "astra", "speed" => "125", "doors" => "4", "year" => "2014");
+$cars["bmv"] = $bmv;
+$cars["toyota"] = $toyota;
+$cars["opel"] = $opel;
 
-$keys = array_keys($car);
-for($i = 0; $i < count($car); $i++) {
-    echo "CAR " . $keys[$i] . "<br>";
-    foreach($car[$keys[$i]] as $key => $value) {
-        echo $value . " ";
-    }
-    echo "<br><br>";
+foreach($cars as $brand => $specs) {
+        echo "CAR " . $brand . "<br>" .
+            $specs["model"] . " " .
+            $specs["speed"] . " " .
+            $specs["doors"] . " " .
+            $specs["year"] . "<br><br>";
 }
+
+
 
 // #6
 
@@ -93,9 +94,9 @@ $cols = 10;
 
 $table = "<table border='1'>";
 
-for ($tr=1; $tr<=$rows; $tr++) {
+for ($tr = 1; $tr <= $rows; $tr++) {
     $table .= "<tr>";
-    for ($td=1; $td<=$cols; $td++) {
+    for ($td = 1; $td <= $cols; $td++) {
         $result = $tr*$td;
         if ($tr%2 == 0 and $td%2 == 0) {
             $table .= "<td>(" . $result . ")</td>";
