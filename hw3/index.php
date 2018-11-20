@@ -9,5 +9,6 @@ task3();
 task4();
 echo "<br><br>*****************<br><br>";
 task5();
-echo "<br><br>";
 task6();
+echo "<br><br>*****************<br><br>";
+task7();

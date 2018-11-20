@@ -103,12 +103,12 @@ function task6()
     $csvFile = fopen($csvPath, "r");
     if ($csvFile) {
         $csvData[] = fgetcsv($csvFile, 250,";");
-        $array = $csvData[0];
+        $data = $csvData[0];
     }
     $even_sum = 0;
     for ($i = 0; $i < 50; $i++) {
-        if ($array[$i] % 2 === 0) {
-            $even_sum += $array[$i];
+        if ($data[$i] % 2 === 0) {
+            $even_sum += $data[$i];
         }
     }
     echo $even_sum;
@@ -116,3 +116,13 @@ function task6()
 
 // #4
 
+function task7()
+{
+    $json_content = file_get_contents
+    ("https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json");
+    $data = json_decode($json_content, true);
+    //$query = $data["query"];
+    //$title = $query["title"];
+    // echo "<pre>";
+    // print_r ($json_content);
+}
