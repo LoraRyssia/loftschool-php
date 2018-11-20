@@ -2,22 +2,19 @@
 
 // #1
 
-function task1($string)
+function task1($strings, $glue = "false")
 {
-    $arg_number = func_num_args();
-    $arg_array = func_get_args();
-    if ($arg_number == 1) {
-        for ($i = 0; $i <= sizeof($string); ++$i) {
-            echo "<p>" . $string[$i] . "</p>";
+    $strings_num = sizeof($strings);
+    if ($glue === "false") {
+        for ($i = 0; $i <= $strings_num; ++$i) {
+            echo "<p>" . $strings[$i] . "</p>";
         }
     } else {
-        if ($arg_array[1] === true) {
-            $result = '';
-            for ($i = 0; $i <= sizeof($string); ++$i) {
-                $result .= ' ' . $string[$i];
-            }
-            echo $result . "<br>";
+        $result = '';
+        for ($i = 0; $i <= $strings_num; ++$i) {
+            $result .= ' ' . $strings[$i];
         }
+        echo $result . "<br><br>";
     }
 }
 
@@ -25,51 +22,22 @@ function task1($string)
 
 function task2()
 {
-    $arg_array = func_get_args();
-    $result = $arg_array[1];
-    $expres = $arg_array[1];
-    switch ($arg_array[0]) {
-        case '+':
-            for ($i = 2; $i < sizeof($arg_array); ++$i) {
-                $result += $arg_array[$i];
-                $expres = $expres . ' + ' .$arg_array[$i];
-            };
-            echo $expres . ' = ' .$result;
-            break;
-        case '-':
-            for ($i = 2; $i < sizeof($arg_array); ++$i) {
-                $result -= $arg_array[$i];
-                $expres .= ' - ' .$arg_array[$i];
-            };
-            echo $expres . ' = ' .$result;
-            break;
-        case '*':
-            for ($i = 2; $i < sizeof($arg_array); ++$i) {
-                $result *= $arg_array[$i];
-                $expres .= ' * ' .$arg_array[$i];
-            };
-            echo $expres . ' = ' .$result;
-            break;
-        case '/':
-            for ($i = 2; $i < sizeof($arg_array); ++$i) {
-                $result /= $arg_array[$i];
-                $expres .= ' / ' .$arg_array[$i];
-            };
-            echo $expres . ' = ' .$result;
-            break;
-        default:
-            echo "Первый аргумент не обозначает арифметическое действие<br>";
-    }
+    $args = func_get_args();
+    $operator = array_shift($args);
+    $string = implode($operator, $args);
+    $result = eval('return '.$string.';');;
+    echo $string . " = " . $result;
 }
 
 // #3
 
-function task3($a, $b)
+function task3($rows, $cols)
 {
-    if (is_int($a) and is_int($b)) {
-        $rows = $a;
-        $cols = $b;
+    if (!is_int($rows) and !is_int($cols)) {
+        echo "Один из аргументов функции не является целым числом.<br>";
+        return;
 
+    } else {
         $table = "<table border='1'>";
 
         for ($tr = 1; $tr <= $rows; $tr++) {
@@ -82,8 +50,6 @@ function task3($a, $b)
 
         $table .= "</table>";
         echo $table;
-    } else {
-        echo "Один из аргументов функции не является целым числом.<br>";
     }
 }
 
@@ -117,10 +83,12 @@ function task8()
 {
     $file = fopen("test.txt", "w");
     fwrite($file, "Hello again!");
+    fclose($file);
 }
 
 function task9($filename)
 {
     $file = fopen($filename, "r");
     echo fread($file, 255);
+    fclose($file);
 }
