@@ -1,5 +1,7 @@
 <?php
 
+// #1
+
 function task1()
 {
     $file = file_get_contents("src/data.xml");
@@ -31,3 +33,86 @@ function task1()
         echo "</p>";
     }
 }
+
+// #2
+
+function task2()
+{
+    $data = array
+    (
+        array("name" => "Volvo", "in_stock" => 22, "sold" => 18),
+        array("name" => "BMW", "in_stock" => 15, "sold" => 13),
+        array("name" => "Saab", "in_stock" => 5, "sold" => 2),
+        array("name" => "Land Rover", "in_stock" => 17, "sold" => 15)
+    );
+
+    $json_content = json_encode($data);
+    file_put_contents("./output.json", $json_content);
+}
+
+function task3()
+{
+    $json_content = file_get_contents("./output.json");
+    $data = json_decode($json_content, true);
+    $rand = rand(0,1);
+    if ($rand === 1) {
+        $diff = rand(-5, 7);
+        $data[1]["in_stock"] += $diff;
+    }
+    $json_content = json_encode($data);
+    file_put_contents("./output2.json", $json_content);
+}
+
+function task4()
+{
+    $json_content1 = file_get_contents("./output.json");
+    $json_content2 = file_get_contents("./output2.json");
+
+    $data1 = json_decode($json_content1, true);
+    $data2 = json_decode($json_content2, true);
+
+    $target_var1 = $data1[1]["in_stock"];
+    $target_var2 = $data2[1]["in_stock"];
+
+    $compare = $target_var2 - $target_var1;
+
+    if ($compare === 0) {
+        echo "BMW in stock remained unchanged!<br>";
+    } elseif ($compare > 0) {
+        echo "BMW in stock increased by " . $compare . "<br>";
+    } else {
+        echo "BMW in stock decreased by " . (-1)*$compare . "<br>";
+    }
+}
+
+// #3
+function task5()
+{
+    $array = [];
+    for ($i = 0; $i < 50; $i++) {
+        $array[$i] = rand(1 , 100);
+    }
+    $file = fopen("./output.csv", "w");
+    fputcsv($file, $array, "; ");
+    fclose($file);
+}
+
+function task6()
+{
+    $csvPath = "./output.csv";
+    $csvFile = fopen($csvPath, "r");
+    if ($csvFile) {
+        $csvData[] = fgetcsv($csvFile, 250,";");
+        $array = $csvData[0];
+    }
+    $even_sum = 0;
+    for ($i = 0; $i < 50; $i++) {
+        if ($array[$i] % 2 === 0) {
+            $even_sum += $array[$i];
+        }
+    }
+    echo $even_sum;
+}
+
+// #4
+
