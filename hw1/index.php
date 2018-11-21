@@ -58,24 +58,10 @@ switch ($day) {
 
 // #5
 
-$bmv["model"] = "X5";
-$bmv["speed"] = "120";
-$bmv["doors"] = "5";
-$bmv["year"] = "2015";
-
-$toyota["model"] = "camry";
-$toyota["speed"] = "110";
-$toyota["doors"] = "4";
-$toyota["year"] = "2016";
-
-$opel["model"] = "astra";
-$opel["speed"] = "125";
-$opel["doors"] = "4";
-$opel["year"] = "2014";
-
-$cars["bmv"] = $bmv;
-$cars["toyota"] = $toyota;
-$cars["opel"] = $opel;
+$bmv = array('model' => 'X5', 'speed' => '120', 'doors' => '5', 'year' => '2015');
+$toyota = array('model' => 'camry', 'speed' => '110', 'doors' => '4', 'year' => '2016');
+$opel = array('model' => 'astra', 'speed' => '125', 'doors' => '4', 'year' => '2014');
+$cars = array('bmv' => $bmv, 'toyota' => $toyota, 'opel' => $opel);
 
 foreach($cars as $brand => $specs) {
         echo "CAR " . $brand . "<br>" .
