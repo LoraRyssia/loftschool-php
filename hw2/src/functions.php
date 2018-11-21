@@ -4,17 +4,12 @@
 
 function task1($strings, $glue = "false")
 {
-    $strings_num = sizeof($strings);
-    if ($glue === "false") {
-        for ($i = 0; $i <= $strings_num; ++$i) {
-            echo "<p>" . $strings[$i] . "</p>";
+    if ($glue == "false") {
+        foreach ($strings as $string) {
+            echo "<p>" . $string . "</p>";
         }
     } else {
-        $result = '';
-        for ($i = 0; $i <= $strings_num; ++$i) {
-            $result .= ' ' . $strings[$i];
-        }
-        echo $result . "<br><br>";
+        echo implode("; ", $strings);
     }
 }
 
