@@ -54,7 +54,7 @@ function task3()
 {
     $json_content = file_get_contents("./output.json");
     $data = json_decode($json_content, true);
-    $rand = rand(0,1);
+    $rand = rand(0, 1);
     if ($rand === 1) {
         $diff = rand(-5, 7);
         $data[1]["in_stock"] += $diff;
@@ -90,7 +90,7 @@ function task5()
 {
     $array = [];
     for ($i = 0; $i < 50; $i++) {
-        $array[$i] = rand(1 , 100);
+        $array[$i] = rand(1, 100);
     }
     $file = fopen("./output.csv", "w");
     fputcsv($file, $array, "; ");
@@ -102,7 +102,7 @@ function task6()
     $csvPath = "./output.csv";
     $csvFile = fopen($csvPath, "r");
     if ($csvFile) {
-        $csvData[] = fgetcsv($csvFile, 250,";");
+        $csvData[] = fgetcsv($csvFile, 250, ";");
         $data = $csvData[0];
     }
     $even_sum = 0;
@@ -118,11 +118,17 @@ function task6()
 
 function task7()
 {
-    $json_content = file_get_contents
+    $string = file_get_contents
     ("https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json");
-    $data = json_decode($json_content, true);
-    //$query = $data["query"];
-    //$title = $query["title"];
-    // echo "<pre>";
-    // print_r ($json_content);
+    $title_start = strpos($string, "title") + strlen("title\":\"");
+    $title_substring = substr($string, $title_start, 255);
+    $title_length = stripos($title_substring, "\"");
+    echo "Title:   " . substr($title_substring, '0', $title_length) . '<br/>';
+
+    $pageid_start = strpos($string, "pageid") + strlen("pageid\":\"");
+    $pageid_substring = substr($string, $pageid_start, 255);
+    $pageid_length = stripos($pageid_substring, ",");
+    echo "Page ID:   " . substr($pageid_substring, '0', $pageid_length) . '<br/>';
+    //echo "<pre>";
+    //print_r ($string);
 }
